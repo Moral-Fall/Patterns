@@ -18,8 +18,17 @@ export function multiply(num1, num2) {
  * @returns {string} "Who would you like to vote for?" if `age` is 18 or older
  */
 export function vote(age) {
-  // TODO
+  if ( typeof age !== "number") {
+    return "Age is not valid."
+  }
+  else if (age < 18) {
+    return "You must be 18 or older to vote."
+  } 
+    else {
+      return "Who would you like to vote for?"
+    }
 }
+
 
 /**
  * @param {string} str1
