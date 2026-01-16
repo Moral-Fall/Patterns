@@ -22,9 +22,22 @@ export function sumToN(n) {
  * @returns `1` if n is 0
  */
 export function factorial(n) {
-  // TODO
-}
+  if (typeof n !== "number") {
+    return NaN
+    }
+  if (n < 0) {
+    return undefined
+  }
+  if (n === 0) {
+    return 1
+  }
 
+  let product = 1;
+  for (let i = 1; i <= n; i++) {
+    product *= i;
+  }
+   return product;
+}
 /**
  * @param {number} n
  * @returns {number[]} an array of integers from 1 to n, inclusive
@@ -32,15 +45,36 @@ export function factorial(n) {
  * @returns `[]` if n is 0 or negative
  */
 export function buildNArray(n) {
-  // TODO
+if (typeof n !== "number") {
+  return null
+}
+if (n <= 0) {
+  return []
+}
+
+ let results = [];
+ for (let i = 1; i <= n; i++) {
+  results.push(i)
+ }
+ return results; 
+
 }
 
 /**
  * @param {string[]} strings
  * @returns {string} the longest string in `strings`
- */
+cat dog rabbit  */
 export function getLongestString(strings) {
-  // TODO
+ if (strings.length === 0) {
+  return "";
+} 
+let longest = strings[0];
+for (let i = 0; i < strings.length; i++) {
+  if (strings[i].length > longest.length){
+    longest = strings[i]
+  }
+ }
+return longest
 }
 
 /**
@@ -48,7 +82,15 @@ export function getLongestString(strings) {
  * @returns {number} the number of students present
  */
 export function countPresent(attendance) {
-  // TODO
+  // TODO true, false, true
+let count = 0
+for (let i = 0; i < attendance.length; i++) {
+  if (attendance[i] === true) {
+    count++
+  }
+}
+return count;
+  // forEach student- if true they are here. False is not here. 
 }
 
 /**
@@ -62,5 +104,23 @@ export function countPresent(attendance) {
  * @returns `null` if `dna` is not a string
  */
 export function complementDNA(dna) {
-  // TODO
+  if (typeof dna !== "string") {
+    return null
+  }
+  let complement = ""
+    for (let i = 0; i < dna.length; i++) {
+      if (dna[i] === "A") {
+        complement = complement + "T"
+      }
+      if (dna[i] === "T") {
+        complement = complement + "A"
+      }
+      if (dna[i] === "C") {
+        complement = complement + "G"
+      }
+      if (dna[i] === "G") {
+        complement = complement + "C"
+      }
+    }
+    return complement
 }
